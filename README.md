@@ -1,7 +1,7 @@
-# Fuzzy Mamdani Diagnosa Stunting Pada Ibu Hamil
+#Fuzzy Mamdani Diagnosa Stunting Pada Ibu Hamil
 Prediksi menentukan kondisi stunting pada Ibu Hamil dengan Metode Fuzzy Mamdani. Sistem ini dibuat untuk menyelesaikan tugas Mata Kuliah Artificial Intelligent.
 
-# Support By
+#Support By
 <p float="left">
     <img src="https://miro.medium.com/max/640/1*bf37-lAuwi6_Wx5-e5EJ1Q.jpeg" alt="Gambar 1" width="42" height="42" />
     <img src="https://cdn.dribbble.com/users/24078/screenshots/15522433/media/e92e58ec9d338a234945ae3d3ffd5be3.jpg?compress=1&resize=300x225" alt="Gambar 2" width="42" height="42" />
@@ -9,6 +9,6 @@ Prediksi menentukan kondisi stunting pada Ibu Hamil dengan Metode Fuzzy Mamdani.
 </p>
 
 
-# Contributing
+#Contributing
 Hendri Wahyu Perdana <br/>
 Ummu Syarifah
