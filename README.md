@@ -10,5 +10,5 @@ Prediksi menentukan kondisi stunting pada Ibu Hamil dengan Metode Fuzzy Mamdani.
 
 
 # Contributing
-Hendri Wahyu Perdana
+Hendri Wahyu Perdana <br/>
 Ummu Syarifah
