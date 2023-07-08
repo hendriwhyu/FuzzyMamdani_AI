@@ -30,7 +30,7 @@ imt['underweight'] = fuzz.trimf(imt.universe, [15, 15, 18.5])
 imt['normal'] = fuzz.trimf(imt.universe, [18.5, 22, 25])
 imt['overweight'] = fuzz.trimf(imt.universe, [25, 30, 35])
 
-jumlah_anak['small'] = fuzz.trimf(jumlah_anak.universe, [0, 0, 3])
+jumlah_anak['small'] = fuzz.trimf(jumlah_anak.universe, [0, 0, 2])
 jumlah_anak['medium'] = fuzz.trimf(jumlah_anak.universe, [3, 5, 7])
 jumlah_anak['big'] = fuzz.trimf(jumlah_anak.universe, [7, 10, 10])
 
@@ -38,10 +38,10 @@ anemia['no'] = fuzz.trimf(anemia.universe, [0, 0, 0])
 anemia['yes'] = fuzz.trimf(anemia.universe, [1, 1, 1])
 
 # Fuzzifikasi untuk variabel output
-stunting['low'] = fuzz.trimf(stunting.universe, [0, 0, 25])
-stunting['medium'] = fuzz.trimf(stunting.universe, [25, 50, 75])
-stunting['high'] = fuzz.trimf(stunting.universe, [75, 100, 100])
-stunting['very_low'] = fuzz.trimf(stunting.universe, [0, 0, 10])
+stunting['low'] = fuzz.trimf(stunting.universe, [20, 35, 50])
+stunting['medium'] = fuzz.trimf(stunting.universe, [50, 55, 60])
+stunting['high'] = fuzz.trimf(stunting.universe, [60, 75, 90])
+stunting['very_low'] = fuzz.trimf(stunting.universe, [0, 10, 20])
 stunting['very_high'] = fuzz.trimf(stunting.universe, [90, 100, 100])
 
 # Definisikan aturan-aturan fuzzy
@@ -66,7 +66,7 @@ rule3 = ctrl.Rule(usia_ibu['middle'] | usia_ibu['old'] &
                   anemia['yes'], stunting['high'])
 
 # Definisikan aturan fuzzy untuk stunting medium
-rule4 = ctrl.Rule(usia_ibu['middle'] | usia_ibu['old'] &
+rule4 = ctrl.Rule(usia_ibu['young'] | usia_ibu['middle'] | usia_ibu['old'] &
                   lila['medium'] | lila['large'] &
                   lingkar_perut['big'] &
                   imt['normal'] | imt['overweight'] &
@@ -74,10 +74,10 @@ rule4 = ctrl.Rule(usia_ibu['middle'] | usia_ibu['old'] &
                   anemia['no'], stunting['medium'])
 
 # Definisikan aturan fuzzy untuk stunting very low
-rule5 = ctrl.Rule(usia_ibu['young'] &
-                  lila['small'] &
+rule5 = ctrl.Rule(usia_ibu['middle'] &
+                  lila['medium'] &
                   lingkar_perut['normal'] &
-                  imt['underweight'] &
+                  imt['normal'] &
                   jumlah_anak['small'] &
                   anemia['no'], stunting['very_low'])
 
@@ -88,6 +88,7 @@ rule6 = ctrl.Rule(usia_ibu['young'] | usia_ibu['old'] &
                   imt['underweight'] | imt['overweight'] &
                   jumlah_anak['medium'] | jumlah_anak['big'] &
                   anemia['yes'], stunting['very_high'])
+
 
 # Definisikan sistem kontrol
 stunting_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6])
